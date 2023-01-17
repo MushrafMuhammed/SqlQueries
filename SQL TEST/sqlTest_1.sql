@@ -165,3 +165,5 @@ INSERT INTO tbl_supplier(vchr_supplier_name)VALUES
 (5 rows)
 
 
+
+

@@ -175,9 +175,42 @@ SELECT * FROM tbl_student
        6 |       4 | MAYA   | BANGLORE |  9946649402 | 1987-11-12
        1 |       8 | ANOOP  | BANGLORE | 99466649403 | 1990-12-22
 
--- SELECT s_name,mobile,course,city FROM tbl_student  INNER JOIN tbl_grade ON tbl_student.roll_no = tbl_grade.roll_no WHERE course='JAVA' WHERE city = 'BANGLORE' from tbl_student ;
 
-ALTER TABLE tbl_student ALTER COLUMN dob SET DATA TYPE date USING to_date(DATE, 'YYYY-MM-DD');
-select to_date(dob, 'Mon/DD/YYYY');
+#14
+
+
+
+SELECT tbl_student.name,tbl_grade.course FROM tbl_student  INNER JOIN tbl_grade
+ON tbl_student."Roll No" = tbl_grade."Roll No" WHERE name LIKE 'A%';
+ name  | course
+-------+--------
+ AKHIL | C
+ AKHIL | JAVA
+ ANOOP | JAVA
+(3 rows)
+---------------------------------------------------------------------------------------
+#15
+
+SELECT name, date_part('year',age(dob)) AS age FROM tbl_student;
+  name   | age
+---------+-----
+ AKHIL   |  37
+ MAYA    |  35
+ ANOOP   |  32
+ PAUL    |  31
+ SANDEEP |  29
+---------------------------------------------------------------------------------------
+
+#16 
+
+SELECT name, to_char("dob", 'DD-Mon-YYYY') FROM tbl_student;
+  name   |   to_char
+---------+-------------
+ AKHIL   | 12-Jan-1986
+ MAYA    | 12-Nov-1987
+ ANOOP   | 22-Dec-1990
+ PAUL    | 13-Mar-1991
+ SANDEEP | 14-Jun-1993
+---------------------------------------------------------------------------------------
 
 
